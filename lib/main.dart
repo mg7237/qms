@@ -5,9 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:qms/screens/splash_screen.dart';
+import 'package:qms/screens/login.dart';
+import 'package:qms/screens/home.dart';
+import 'package:qms/util/constants.dart';
+import 'package:qms/providers/theme_manager.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
 
+void main() {
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => ThemeNotifier()),
+  ], child: MyApp()));
+}
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -56,7 +65,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
     return OverlaySupport(
       child: MaterialApp(
-        title: 'qms',
+        title: 'QMS',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           brightness: Brightness.light,
@@ -68,8 +77,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         ),
         builder: (context, child) {
           return showNoInternet ? NoInternet() : child;
-        },
+
+          },
         home: SplashScreen(),
+
+    routes: <String, WidgetBuilder>{
+    HOME_PAGE: (BuildContext context) => HomePage(),
+    LOGIN: (BuildContext context) => Login()}
+
       ),
     );
   }

@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:qms/util/preference_connector.dart';
-import 'package:qms/util/theme_manager.dart';
+import 'package:qms/providers/theme_manager.dart';
+import 'package:qms/util/constants.dart';
 import 'package:qms/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -41,10 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
       PreferenceConnector()
           .setString(PreferenceConnector.THEME_SELECTED, globals.theme);
     }
-    runApp(ChangeNotifierProvider<ThemeNotifier>(
-      create: (_) => new ThemeNotifier(),
-      child: Login(),
-    ));
+    Navigator.pushReplacementNamed(context, LOGIN);
     //Navigator.pushReplacementNamed(context, HOME_PAGE);
   }
 

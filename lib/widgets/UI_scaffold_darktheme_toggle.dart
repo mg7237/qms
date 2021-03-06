@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qms/util/constants.dart';
 import 'package:qms/util/globals.dart' as globals;
 import 'package:provider/provider.dart';
-import 'package:qms/util/theme_manager.dart';
+import 'package:qms/providers/theme_manager.dart';
 
 class SampleWidget extends StatefulWidget {
   @override
