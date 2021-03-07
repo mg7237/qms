@@ -105,36 +105,43 @@ class _ReportIncidentState extends State<ReportIncident> {
                           SizedBox(
                             height: 10,
                           ),
-                          EnsureVisibleWhenFocused(
-                            focusNode: _focusNodeTitle,
-                            child: new TextFormField(
-                              //enabled: !showLoader,
-                              style: TextStyle(fontSize: 20),
-                              decoration: const InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(style: BorderStyle.none),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(15.0))),
-                                  hintText: 'Title',
-                                  fillColor: Colors.white),
-                              // onSaved: (value) =>
-                              //     _loginRequestModel.email = value,
-                              //validator: _loginRequestModel.emailValidate,
-                              validator: (value) {
-                                if ((value ?? '') != '') {
-                                  return null;
-                                } else
-                                  return 'Enter Title';
-                              },
-                              controller: _titleController,
+                          Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            child: EnsureVisibleWhenFocused(
                               focusNode: _focusNodeTitle,
-                              keyboardType: TextInputType.emailAddress,
-                              textInputAction: TextInputAction.next,
-                              onFieldSubmitted: (value) {
-                                fieldFocusChange(context, _focusNodeTitle,
-                                    _focusNodeAircraftReg);
-                              },
+                              child: new TextFormField(
+                                //enabled: !showLoader,
+                                style: TextStyle(fontSize: 16),
+                                decoration: const InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(style: BorderStyle.none),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15.0))),
+                                    hintText: 'Title',
+                                    fillColor: Colors.white),
+                                // onSaved: (value) =>
+                                //     _loginRequestModel.email = value,
+                                //validator: _loginRequestModel.emailValidate,
+                                validator: (value) {
+                                  if ((value ?? '') != '') {
+                                    return null;
+                                  } else
+                                    return 'Enter Title';
+                                },
+                                controller: _titleController,
+                                focusNode: _focusNodeTitle,
+                                keyboardType: TextInputType.emailAddress,
+                                textInputAction: TextInputAction.next,
+                                onFieldSubmitted: (value) {
+                                  fieldFocusChange(context, _focusNodeTitle,
+                                      _focusNodeAircraftReg);
+                                },
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -146,8 +153,9 @@ class _ReportIncidentState extends State<ReportIncident> {
                           ),
                           Container(
                               width: double.infinity,
-                              height: 65,
+                              height: 50,
                               decoration: BoxDecoration(
+                                  color: Colors.white,
                                   border: Border.all(color: Colors.grey),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0))),
@@ -165,7 +173,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                                     aircraftRegList.map((aircraftRegOptions) {
                                   return DropdownMenuItem(
                                     child: new Text(aircraftRegOptions,
-                                        style: TextStyle(fontSize: 20)),
+                                        style: TextStyle(fontSize: 16)),
                                     value: aircraftRegOptions,
                                   );
                                 }).toList(),
@@ -179,9 +187,10 @@ class _ReportIncidentState extends State<ReportIncident> {
                           ),
                           Container(
                               width: double.infinity,
-                              height: 65,
+                              height: 50,
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.grey),
+                                  color: Colors.white,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0))),
                               padding: EdgeInsets.symmetric(horizontal: 23),
@@ -197,7 +206,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                                 items: incidentTypeList.map((incidentType) {
                                   return DropdownMenuItem(
                                     child: new Text(incidentType,
-                                        style: TextStyle(fontSize: 20)),
+                                        style: TextStyle(fontSize: 16)),
                                     value: incidentType,
                                   );
                                 }).toList(),
@@ -212,9 +221,10 @@ class _ReportIncidentState extends State<ReportIncident> {
                           ),
                           Container(
                               width: double.infinity,
-                              height: 65,
+                              height: 50,
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.grey),
+                                  color: Colors.white,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0))),
                               padding: EdgeInsets.symmetric(horizontal: 23),
@@ -231,7 +241,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                                     .map((weatherInformation) {
                                   return DropdownMenuItem(
                                     child: new Text(weatherInformation,
-                                        style: TextStyle(fontSize: 20)),
+                                        style: TextStyle(fontSize: 16)),
                                     value: weatherInformation,
                                   );
                                 }).toList(),
@@ -248,7 +258,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                             children: [
                               Container(
                                   height: 50,
-                                  width: 160,
+                                  width: 150,
                                   decoration: BoxDecoration(
                                       color: Colors.green[300],
                                       border: Border.all(color: Colors.grey),
@@ -285,9 +295,6 @@ class _ReportIncidentState extends State<ReportIncident> {
                             ],
                           ),
 
-                          SizedBox(
-                            height: 40,
-                          ),
                           // DropDownView(
                           //   text: stateName != null || stateName.isNotEmpty ? stateName : "Select",
                           //   onPressed: () {
@@ -301,52 +308,56 @@ class _ReportIncidentState extends State<ReportIncident> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: 10,
-                          ),
                           LabelText("Enter Detailed Description"),
                           SizedBox(
                             height: 10,
                           ),
-                          EnsureVisibleWhenFocused(
-                            focusNode: _focusNodeTitle,
-                            child: new TextFormField(
-                              //enabled: !showLoader,
-                              style: TextStyle(fontSize: 16),
-                              decoration: const InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(style: BorderStyle.none),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(15.0))),
-                                  hintText:
-                                      'Description net less than 100 words',
-                                  fillColor: Colors.white),
-                              // onSaved: (value) =>
-                              //     _loginRequestModel.email = value,
-                              //validator: _loginRequestModel.emailValidate,
-                              validator: (value) {
-                                if ((value ?? '') != '') {
-                                  if (value.length >= 100) {
-                                    // 100 words noy char
-                                    return null;
-                                  } else {
-                                    return 'Please enter minimum 100 words';
-                                  }
-                                } else
-                                  return 'Enter Description';
-                              },
-                              controller: _descriptionController,
-                              focusNode: _focusNodeDescription,
-                              keyboardType: TextInputType.multiline,
-                              minLines:
-                                  1, //Normal textInputField will be displayed
-                              maxLines: 5,
-                              textInputAction: TextInputAction.next,
-                              // onFieldSubmitted: (value) {
-                              //   fieldFocusChange(context, _focusNodeDescription,
-                              //       _focusNodeAircraftReg);
-                              // },
+                          Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0))),
+                            child: EnsureVisibleWhenFocused(
+                              focusNode: _focusNodeTitle,
+                              child: new TextFormField(
+                                //enabled: !showLoader,
+                                style: TextStyle(fontSize: 16),
+                                decoration: const InputDecoration(
+                                    border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(style: BorderStyle.none),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15.0))),
+                                    hintText:
+                                        'Description net less than 100 words',
+                                    fillColor: Colors.white),
+                                // onSaved: (value) =>
+                                //     _loginRequestModel.email = value,
+                                //validator: _loginRequestModel.emailValidate,
+                                validator: (value) {
+                                  if ((value ?? '') != '') {
+                                    if (value.length >= 100) {
+                                      // 100 words noy char
+                                      return null;
+                                    } else {
+                                      return 'Please enter minimum 100 words';
+                                    }
+                                  } else
+                                    return 'Enter Description';
+                                },
+                                controller: _descriptionController,
+                                focusNode: _focusNodeDescription,
+                                keyboardType: TextInputType.multiline,
+                                minLines:
+                                    1, //Normal textInputField will be displayed
+                                maxLines: 5,
+                                textInputAction: TextInputAction.next,
+                                // onFieldSubmitted: (value) {
+                                //   fieldFocusChange(context, _focusNodeDescription,
+                                //       _focusNodeAircraftReg);
+                                // },
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -361,7 +372,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                             children: [
                               Container(
                                   height: 50,
-                                  width: 160,
+                                  width: 150,
                                   decoration: BoxDecoration(
                                       color: Colors.green[300],
                                       border: Border.all(color: Colors.grey),
@@ -410,7 +421,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                             children: [
                               Container(
                                   height: 50,
-                                  width: 160,
+                                  width: 150,
                                   decoration: BoxDecoration(
                                       color: Colors.green[300],
                                       border: Border.all(color: Colors.grey),
@@ -459,7 +470,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                             children: [
                               Container(
                                   height: 50,
-                                  width: 160,
+                                  width: 150,
                                   decoration: BoxDecoration(
                                       color: Colors.green[300],
                                       border: Border.all(color: Colors.grey),
@@ -508,7 +519,7 @@ class _ReportIncidentState extends State<ReportIncident> {
                             children: [
                               Container(
                                   height: 50,
-                                  width: 160,
+                                  width: 150,
                                   decoration: BoxDecoration(
                                       color: Colors.green[300],
                                       border: Border.all(color: Colors.grey),
@@ -545,9 +556,6 @@ class _ReportIncidentState extends State<ReportIncident> {
                             ],
                           ),
 
-                          SizedBox(
-                            height: 40,
-                          ),
                           // DropDownView(
                           //   text: stateName != null || stateName.isNotEmpty ? stateName : "Select",
                           //   onPressed: () {

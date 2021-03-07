@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                         child: Image(
                             image: AssetImage('assets/icon/login_logo.png')))),
                 Container(
-                  height: (MediaQuery.of(context).size.height * 2 / 5),
+                  height: (MediaQuery.of(context).size.height * 2 / 5) + 10,
                   width: double.infinity,
                   decoration: BoxDecoration(color: Colors.blue[900]),
                   child: Column(
